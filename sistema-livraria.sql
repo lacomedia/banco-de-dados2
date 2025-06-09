@@ -27,3 +27,11 @@ INSERT INTO Clientes (Nome, Email, Telefone) VALUES
 
 -- Consultar todos os dados inseridos
 SELECT * FROM Clientes;
+
+CREATE TABLE compras (
+    id_compra INTEGER PRIMARY KEY,
+    id_cliente INTEGER,
+    id_livro INTEGER,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_livro) REFERENCES livros(id_livro)
+);
