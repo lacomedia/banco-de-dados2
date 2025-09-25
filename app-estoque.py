@@ -41,6 +41,39 @@ produtos = [
 produtos.append(Produto(4, "Marcador", "Papelaria", 80, 3.75, "Pilot"))
 produtos.append(Produto(5, "Grampeador", "Escritório", 30, 22.90, "Tramontina"))
 
+class Produto:
+    def __init__(self, id, nome, categoria, quantidade, preco, fornecedor):
+        self.id = id
+        self.nome = nome
+        self.categoria = categoria
+        self.quantidade = quantidade
+        self.preco = preco
+        self.fornecedor = fornecedor
+
+    def __str__(self):
+        return f"{self.id} - {self.nome} | Categoria: {self.categoria} | Quantidade: {self.quantidade} | Preço: R${self.preco:.2f} | Fornecedor: {self.fornecedor}"
+
+# Lista inicial de produtos
+produtos = [
+    Produto(1, "Caneta", "Papelaria", 100, 2.50, "OfficeMax"),
+    Produto(2, "Caderno", "Papelaria", 50, 15.90, "Faber"),
+    Produto(3, "Borracha", "Papelaria", 200, 1.20, "Mercur")
+]
+
+# Adicionando dois novos produtos
+produtos.append(Produto(4, "Marcador", "Papelaria", 80, 3.75, "Pilot"))
+produtos.append(Produto(5, "Grampeador", "Escritório", 30, 22.90, "Tramontina"))
+
+# Função para listar produtos com preço acima de R$10
+def listar_produtos_acima_de_10():
+    print("Produtos com preço acima de R$10:")
+    for produto in produtos:
+        if produto.preco > 10:
+            print(produto)
+
+# Teste da função
+listar_produtos_acima_de_10()
+
 # 🧬 Serializa os produtos para JSON e exibe no terminal
 json_produtos = json.dumps([p.to_dict() for p in produtos], indent=4)
 print("📦 Produtos em JSON:")
